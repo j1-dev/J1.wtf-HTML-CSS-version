@@ -391,3 +391,58 @@ footer ul li a {
     color: blue;
   }
 }
+
+/* Estilo para el formulario */
+form {
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px black solid;
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+form a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Estilo para las etiquetas de los campos de formulario */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Estilo para los campos de formulario */
+input[type='text'],
+input[type='password'] {
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 10px;
+  width: 200px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Estilo para el botón de envío */
+button[type='submit'] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para el botón de envío cuando el cursor está sobre él */
+button[type='submit']:hover {
+  background-color: #444;
+}
