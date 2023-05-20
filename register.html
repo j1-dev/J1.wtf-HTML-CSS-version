@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <link rel="icon" type="image/icon" href="img/j1.png">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -76,7 +77,12 @@
       }
 
       if (!privacyCheckbox.checked) {
-        alert("Debe aceptar la política de privacidad para registrarse.");
+        // Use SweetAlert for displaying the alert message
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Debe aceptar la política de privacidad para registrarse.'
+        });
       }
 
       if (usernameValue !== "" && passwordValue !== "" && confirmPasswordValue !== "" && passwordValue === confirmPasswordValue && privacyCheckbox.checked) {
@@ -85,15 +91,20 @@
           password: passwordValue
         };
 
-        console.log("Form data:", JSON.stringify(formData));
+        console.log("Form data:", formData);
         registrationForm.reset();
       }
     }
 
     function showErrorMessage(inputElement, errorElement, message) {
-      inputElement.classList.add("invalid");
-      errorElement.textContent = message;
-    }
+        inputElement.classList.add("invalid");
+        // Use SweetAlert for displaying the error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: message
+        });
+      }
 
     function removeErrorMessage(inputElement, errorElement) {
       inputElement.classList.remove("invalid");
