@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title> J1 </title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="icon" type="image/icon" href="img/j1.png">
+</head>
+
+<body>
+  <form id="registrationForm" novalidate>
+    <h2>Formulario de registro</h2>
+    <label for="username">Nombre de usuario / e-mail</label>
+    <input type="email" id="username" required>
+    <span class="error-message" id="usernameError"></span>
+    <label for="password">Contraseña</label>
+    <input type="password" id="password" minlength="6" maxlength="17" required
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$">
+    <span class="error-message" id="passwordError"></span>
+    <label for="confirmPassword">Confirmar Contraseña</label>
+    <input type="password" id="confirmPassword" minlength="6" maxlength="17" required>
+    <span class="error-message" id="confirmPasswordError"></span>
+    <input type="checkbox" id="privacyCheckbox" required>
+    <label class="checkbox-label" for="privacyCheckbox">He leído y acepto la política de privacidad</label>
+    <button type="submit">Registrarse</button>
+  </form>
+
+  <script>
+    const registrationForm = document.getElementById("registrationForm");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+    const privacyCheckbox = document.getElementById("privacyCheckbox");
+    const usernameError = document.getElementById("usernameError");
+    const passwordError = document.getElementById("passwordError");
+    const confirmPasswordError = document.getElementById("confirmPasswordError");
+
+    registrationForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      validateForm();
+    });
+
+    usernameInput.addEventListener("focus", function () {
+      removeErrorMessage(usernameInput, usernameError);
+    });
+
+    passwordInput.addEventListener("focus", function () {
+      removeErrorMessage(passwordInput, passwordError);
+    });
+
+    confirmPasswordInput.addEventListener("focus", function () {
+      removeErrorMessage(confirmPasswordInput, confirmPasswordError);
+    });
+
+    function validateForm() {
+      const usernameValue = usernameInput.value.trim();
+      const passwordValue = passwordInput.value.trim();
+      const confirmPasswordValue = confirmPasswordInput.value.trim();
+
+      if (usernameValue === "") {
+        showErrorMessage(usernameInput, usernameError, "Este campo es obligatorio");
+      }
+
+      if (passwordValue === "") {
+        showErrorMessage(passwordInput, passwordError, "Este campo es obligatorio");
+      }
+
+      if (confirmPasswordValue === "") {
+        showErrorMessage(confirmPasswordInput, confirmPasswordError, "Este campo es obligatorio");
+      }
+
+      if (passwordValue !== confirmPasswordValue) {
+        showErrorMessage(confirmPasswordInput, confirmPasswordError, "Las contraseñas no coinciden");
+      }
+
+      if (!privacyCheckbox.checked) {
+        alert("Debe aceptar la política de privacidad para registrarse.");
+      }
+
+      if (usernameValue !== "" && passwordValue !== "" && confirmPasswordValue !== "" && passwordValue === confirmPasswordValue && privacyCheckbox.checked) {
+        const formData = {
+          username: usernameValue,
+          password: passwordValue
+        };
+
+        console.log("Form data:", JSON.stringify(formData));
+        registrationForm.reset();
+      }
+    }
+
+    function showErrorMessage(inputElement, errorElement, message) {
+      inputElement.classList.add("invalid");
+      errorElement.textContent = message;
+    }
+
+    function removeErrorMessage(inputElement, errorElement) {
+      inputElement.classList.remove("invalid");
+      errorElement.textContent = "";
+    }
+  </script>
+</body>
+
+</html>
