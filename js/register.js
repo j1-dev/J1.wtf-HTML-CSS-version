@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
 
     if (usernameInput.value === '') {
-      showErrorMessage('Por favor, ingresa tu dirección de email.');
+      showErrorMessage('Por favor, escribe tu dirección de email.');
       return;
     }
 
     if (passwordInput.value === '') {
-      showErrorMessage('Por favor, ingresa tu contraseña.');
+      showErrorMessage('Por favor, escribe tu contraseña.');
       return;
     }
 
@@ -91,13 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const userData = {
-      email: usernameInput.value,
-      password: passwordInput.value,
-    };
-
-    console.log(JSON.stringify(userData));
-
     Swal.fire({
       icon: 'success',
       title: 'Registro exitoso',
@@ -105,6 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
       showConfirmButton: false,
       timer: 2000,
     });
+
+    const userData = {
+      email: usernameInput.value,
+      password: passwordInput.value,
+    };
+
+    console.log(JSON.stringify(userData));
 
     registrationForm.reset();
   });
