@@ -397,7 +397,7 @@ form {
   padding: 20px;
   border-radius: 20px;
   border: 1px black solid;
-  width: 30%;
+  width: 60%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -437,6 +437,10 @@ input[type='password'] {
   width: 200px;
   margin-bottom: 20px;
   font-size: 14px;
+}
+
+input[type='checkbox'] {
+  margin-bottom: 10px;
 }
 
 /* Estilo para el botón de envío */
