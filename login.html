@@ -8,11 +8,13 @@
 </head>
 <body>
   <form>
+    <h2>Formulario de inicio de sesion</h2>
     <label for="user">Nombre de usuario / e-mail</label>
     <input type="text" id="user" required minlength="6" maxlength="17"/>
     <label for="pass">Contraseña</label>
     <input type="password" id="pass" minlength="6" maxlength="17" required pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/"/>
     <button type="submit"><a href="index.html">Enviar</a></button>
+    <a href="/register.html">Si no tienes cuenta, haz click aqui para crearla</a>
   </form>
 </body>
 </html>

@@ -405,9 +405,15 @@ form {
   margin-top: 50px;
 }
 
-form a {
+form > button > a {
   text-decoration: none;
   color: white;
+}
+
+form > a {
+  text-decoration: none;
+  color: black;
+  margin-top: 14px;
 }
 
 /* Estilo para las etiquetas de los campos de formulario */
