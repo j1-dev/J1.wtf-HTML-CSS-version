@@ -5,16 +5,20 @@
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <link rel="icon" type="image/icon" href="img/j1.png">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
-  <form>
+  <form novalidate>
     <h2>Formulario de inicio de sesion</h2>
     <label for="user">Nombre de usuario / e-mail</label>
     <input type="text" id="user" required minlength="6" maxlength="17"/>
     <label for="pass">Contraseña</label>
-    <input type="password" id="pass" minlength="6" maxlength="17" required pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/"/>
+    <input type="password" id="pass" minlength="8" maxlength="17" required pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/"/>
     <button type="submit">Enviar</button>
     <a href="/register.html">Si no tienes cuenta, haz click aqui para crearla</a>
   </form>
+
+  <script src="js/login.js"></script>
 </body>
 </html>

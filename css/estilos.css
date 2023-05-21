@@ -456,6 +456,14 @@ button[type='submit']:hover {
   background-color: #444;
 }
 
+.valid-icon {
+  height: 35px;
+}
+
+.invalid-icon {
+  height: 35px;
+}
+
 .password-requirements {
   display: none;
 }

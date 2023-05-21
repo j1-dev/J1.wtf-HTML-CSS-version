@@ -91,63 +91,64 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Registro exitoso',
-      text: 'Tu formulario ha sido enviado correctamente.',
-      showConfirmButton: false,
-      timer: 2000,
-    });
-
     const userData = {
       email: usernameInput.value,
       password: passwordInput.value,
     };
 
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro exitoso',
+      text: `Tu formulario (${JSON.stringify(
+        userData
+      )}) ha sido enviado correctamente.`,
+      showConfirmButton: false,
+      timer: 2000,
+    });
     console.log(JSON.stringify(userData));
 
     registrationForm.reset();
   });
 
-  function showValidIcon(inputElement) {
+  const showValidIcon = (inputElement) => {
     const validIcon = inputElement.parentElement.querySelector('.valid-icon');
     const invalidIcon =
       inputElement.parentElement.querySelector('.invalid-icon');
     validIcon.style.display = 'inline-block';
     invalidIcon.style.display = 'none';
-  }
+  };
 
-  function showInvalidIcon(inputElement) {
+  const showInvalidIcon = (inputElement) => {
     const validIcon = inputElement.parentElement.querySelector('.valid-icon');
     const invalidIcon =
       inputElement.parentElement.querySelector('.invalid-icon');
     validIcon.style.display = 'none';
     invalidIcon.style.display = 'inline-block';
-  }
+  };
 
-  function showErrorMessage(message) {
+  const showErrorMessage = (message) => {
     Swal.fire({
       icon: 'error',
       title: 'Error',
       text: message,
     });
-  }
+  };
 
-  function showRequirements() {
+  const showRequirements = () => {
     const errorMessage = document.querySelector('.password-requirements');
     errorMessage.style.display = 'block';
-  }
+  };
 
-  function hideRequirements() {
+  const hideRequirements = () => {
     const errorMessage = document.querySelector('.password-requirements');
     errorMessage.style.display = 'none';
-  }
+  };
 
-  function emailIsValid(email) {
+  const emailIsValid = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
+  };
 
-  function passwordIsValid(password) {
+  const passwordIsValid = (password) => {
     // Verificar cada requisito por separado
     const lengthRequirement = password.length >= 8;
     const uppercaseRequirement = /[A-Z]/.test(password);
@@ -162,5 +163,5 @@ document.addEventListener('DOMContentLoaded', () => {
       numberRequirement &&
       specialCharRequirement
     );
-  }
+  };
 });
