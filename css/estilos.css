@@ -411,9 +411,12 @@ form > button > a {
 }
 
 form > a {
-  text-decoration: none;
   color: black;
   margin-top: 14px;
+}
+
+form li {
+  list-style-type: none;
 }
 
 /* Estilo para las etiquetas de los campos de formulario */
@@ -451,4 +454,41 @@ button[type='submit'] {
 /* Estilo para el botón de envío cuando el cursor está sobre él */
 button[type='submit']:hover {
   background-color: #444;
+}
+
+.password-requirements {
+  display: none;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input[type='text'],
+.input-container input[type='password'] {
+  padding-right: 25px;
+}
+
+.input-container .valid-icon,
+.input-container .invalid-icon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.input-container .valid-icon i,
+.input-container .invalid-icon i {
+  color: green;
+}
+
+.input-container.invalid .valid-icon,
+.input-container.valid .invalid-icon {
+  display: none;
+}
+
+.input-container.valid .valid-icon,
+.input-container.invalid .invalid-icon {
+  display: block;
 }
